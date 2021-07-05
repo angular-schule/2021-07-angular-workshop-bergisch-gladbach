@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RepeatDirective should repeat the element (snapshot) 1`] = `
+<div
+  id="root2"
+>
+  
+  <span>
+    A
+  </span>
+  <span>
+    A
+  </span>
+  <span>
+    A
+  </span>
+</div>
+`;

@@ -1,0 +1,27 @@
+<div class="card mb-4">
+  <div class="card-body bg-light">
+    <img class="img-thumbnail float-right" *ngIf="book?.firstThumbnailUrl" [src]="book?.firstThumbnailUrl">
+    <div class="card-title">
+      <h2>
+        {{ book?.title }}
+        (<span data-rating-box>{{ book?.rating }}</span>)
+        <ng-container *brRepeat="book?.rating || 0">⭐️</ng-container>
+      </h2>
+    </div>
+
+    <p class="small text-muted">
+      <ng-container *ngFor="let author of book?.authors; last as l">
+        {{ author }}<ng-container *ngIf="!l">, </ng-container>
+      </ng-container>
+    </p>
+
+    <p>
+      {{ book?.description }}
+    </p>
+
+    <button data-rate-up-btn (click)="doRateUp()" class="btn btn-green mr-1"> + </button>
+    <button (click)="doRateDown()" class="btn btn-red mr-2"> – </button>
+    <a [routerLink]="['/books', book?.isbn]">Details</a>
+
+  </div>
+</div>

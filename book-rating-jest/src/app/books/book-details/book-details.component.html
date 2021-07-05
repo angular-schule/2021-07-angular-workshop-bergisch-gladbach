@@ -1,0 +1,16 @@
+<ng-container *ngIf="book$ | async as book; else loading">
+  <h2>{{ book.title }}</h2>
+  <p>{{ book.description }}</p>
+</ng-container>
+
+<ng-template #loading>
+  <strong>Buch wird geladen…</strong>
+</ng-template>
+
+<hr>
+
+<a class="btn btn-primary" routerLink="/books">Zurück zum Dashboard</a>
+
+<p class="mt-3">
+  <a routerLink="/books/9783864906466">Book 9783864906466 (Angular)</a><br>
+</p>

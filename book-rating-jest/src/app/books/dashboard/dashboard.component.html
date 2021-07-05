@@ -1,0 +1,10 @@
+<ng-container *ngIf="books">
+  <span class="badge badge-success mb-3">Es sind {{ books.length }} Bücher vorhanden.</span>
+
+  <br-book
+    *ngFor="let b of books; trackBy: trackBook"
+    (rateUp)="rateUp($event)"
+    (rateDown)="rateDown($event)"
+    [book]="b"></br-book>
+
+</ng-container>

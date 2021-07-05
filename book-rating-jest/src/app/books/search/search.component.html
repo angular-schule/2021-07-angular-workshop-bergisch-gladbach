@@ -1,0 +1,16 @@
+<div class="form-group">
+  <input type="text" [formControl]="control" class="form-control form-control-lg">
+</div>
+
+<div class="progress" *ngIf="loading">
+  <div class="progress-bar progress-bar-striped bg-danger progress-bar-animated w-100">
+    Suchen ...
+  </div>
+</div>
+
+<div class="list-group">
+  <div class="list-group-item" *ngFor="let book of results$ | async">
+    <a [routerLink]="['/books', book.isbn]">{{ book.title }}</a>
+    <div class="small">{{ book.description }}</div>
+  </div>
+</div>
