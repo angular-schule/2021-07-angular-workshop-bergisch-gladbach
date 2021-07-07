@@ -1,0 +1,47 @@
+<div class="container p-pt-4">
+  <div class="p-d-flex p-jc-between p-ai-center p-mb-4">
+    <div>
+      <a routerLink=".."><i class="pi pi-arrow-left p-mr-1"></i>{{'nav.back' | translate}}</a>
+    </div>
+    <div>
+      <button pButton [label]="'book.delete' | translate" (click)="delete()"
+              icon="pi pi-trash" class="p-button-danger p-button-outlined p-mr-2"
+      ></button>
+      <button pButton [label]="'book.save' | translate" (click)="save()"
+              icon="pi pi-save" class="p-button-success"
+      ></button>
+    </div>
+  </div>
+
+
+  <form class="p-grid p-fluid" *ngIf="crudService.form; let form;" >
+    <div class="p-field p-col-6">
+      <label for="title">{{ 'book.title' | translate }}</label>
+      <input id="title" type="text" pInputText [formControl]="form.title">
+      <app-error-label [control]="form.title"></app-error-label>
+    </div>
+    <div class="p-field p-col-6">
+      <label for="isbn">{{ 'book.isbn' | translate }}</label>
+      <input id="isbn" type="text" pInputText [formControl]="form.isbn">
+      <app-error-label [control]="form.isbn"></app-error-label>
+    </div>
+    <div class="p-field p-col-12">
+      <label for="description">{{ 'book.description' | translate }}</label>
+      <p-editor id="description" [formControl]="form.description" [style]="{'height':'320px'}"></p-editor>
+      <app-error-label [control]="form.description"></app-error-label>
+    </div>
+    <div class="p-col-12 p-grid">
+      <h3 class="p-col-12">{{'book.author' | translate}}</h3>
+      <div class="p-field p-col-6">
+        <label for="authorFirstname">{{ 'book.authorFirstname' | translate }}</label>
+        <input id="authorFirstname" type="text" pInputText [formControl]="form.author.firstname">
+        <app-error-label [control]="form.author.firstname"></app-error-label>
+      </div>
+      <div class="p-field p-col-6">
+        <label for="authorLastname">{{ 'book.authorLastname' | translate }}</label>
+        <input id="authorLastname" type="text" pInputText [formControl]="form.author.lastname">
+        <app-error-label [control]="form.author.lastname"></app-error-label>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+{
+	"book": {
+		"author": "Autor",
+		"authorFirstname": "Vorname",
+		"authorLastname": "Nachname",
+		"authorName": "Author Name",
+		"create": "Erstellen",
+		"createdAt": "Erstellt am",
+		"delete": "Buch löschen",
+		"description": "Beschreibung",
+		"id": "Id",
+		"isbn": "ISBN",
+		"save": "Speichern",
+		"saveDialog": {
+			"text": "Buch erfolgreich gespeichert",
+			"title": "Erfolg"
+		},
+		"title": "Titel"
+	},
+	"formErrors": {
+		"arrayMinLength": null,
+		"maxlength": "Deine Eingabe hat zu viele Zeichen (Erlaubt: {{requiredLength}}, Länge: {{actualLength}})",
+		"required": "Pflichtfeld",
+		"sanitize": "Deine Engabe enthält ungültige Zeichen ({{location}})."
+	},
+	"nav": {
+		"admin": "Admin",
+		"back": "Zurück",
+		"home": "Home"
+	}
+}

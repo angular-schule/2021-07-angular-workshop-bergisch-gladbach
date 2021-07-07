@@ -1,0 +1,22 @@
+{
+  "/api": {
+    "target": {
+      "host": "schulung.local.oevermann.local",
+      "protocol": "http:",
+      "port": 80
+    },
+    "ignorePath": false,
+    "changeOrigin": true,
+    "secure": false
+  },
+  "/framework": {
+    "target": {
+      "host": "schulung.local.oevermann.local",
+      "protocol": "http:",
+      "port": 80
+    },
+    "ignorePath": false,
+    "changeOrigin": true,
+    "secure": false
+  }
+}

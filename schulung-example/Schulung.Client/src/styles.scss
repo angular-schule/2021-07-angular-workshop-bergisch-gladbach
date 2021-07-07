@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary: #075dc7;
+}
+
+body, html {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  font-family: Arial;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+header {
+  height: 60px;
+  background: #ececec;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+
+    li {
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      a {
+        padding: 1rem;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        transition: all .3s ease-in-out;
+
+        &.active,
+        &:hover {
+          background: var(--primary);
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  margin: auto;
+  width: 1200px;
+}
+
+app-error-label{
+  color: #a80000;
+}

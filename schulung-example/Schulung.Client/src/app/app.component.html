@@ -1,0 +1,25 @@
+<header class="p-d-flex p-ai-center p-jc-center">
+  <ul class="p-d-flex p-ai-center p-jc-center">
+    <li class="p-mr-2">
+      <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">{{ 'nav.home' | translate }}</a>
+    </li>
+    <li>
+      <a routerLinkActive="active" routerLink="/admin">{{ 'nav.admin' | translate }}</a>
+    </li>
+  </ul>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<p-toast>
+  <ng-template let-message pTemplate="message">
+    <div class="p-toast-message-text">
+      <div class="p-toast-summary">{{message.summary | translate}}</div>
+      <div class="p-toast-detail">{{message.detail  | translate}}</div>
+    </div>
+  </ng-template>
+</p-toast>
+<on-prime-dialog></on-prime-dialog>
+

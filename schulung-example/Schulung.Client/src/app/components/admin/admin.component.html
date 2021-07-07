@@ -1,0 +1,69 @@
+<div class="container p-pt-4">
+
+  <div class="p-d-flex p-jc-end p-ai-center p-mb-4">
+    <button pButton [label]="'book.create' | translate" routerLink="0"
+      icon="pi pi-plus" class="p-button-success"
+    ></button>
+  </div>
+
+  <p-table *ngIf="listService.resultFullPageChanges | async; let result;"
+           styleClass="p-datatable-striped" [value]="result.items" selectionMode="single"
+           [responsive]="true" dataKey="id" [lazy]="true" (onLazyLoad)="listService.primeNgLazyLoad($event)" [paginator]="true"
+           [rows]="listService.form.pageSize.value" [totalRecords]="result.totalCount"
+           [(first)]="listService.primeNgFirst" [rowsPerPageOptions]="[10,20,30]" [defaultSortOrder]="defaultSortOrder"
+           loadingIcon="pi pi-spinner"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 80px;" pSortableColumn="id">{{ 'book.id' | translate }}
+          <p-sortIcon field="id">
+          </p-sortIcon>
+        </th>
+        <th  pSortableColumn="isbn">{{ 'book.isbn' | translate }}
+          <p-sortIcon field="isbn">
+          </p-sortIcon>
+        </th>
+        <th  pSortableColumn="title">{{ 'book.title' | translate }}
+          <p-sortIcon field="title">
+          </p-sortIcon>
+        </th>
+        <th pSortableColumn="createdAt">{{ 'book.createdAt' | translate }}
+          <p-sortIcon field="createdAt">
+          </p-sortIcon>
+        </th>
+        <th pSortableColumn="authorName">{{ 'book.authorName' | translate }}
+          <p-sortIcon field="authorName">
+          </p-sortIcon>
+        </th>
+      </tr>
+      <tr>
+        <th class="p-fluid">
+          <input pInputText type="number" [formControl]="listService.form.id"/>
+        </th>
+        <th class="p-fluid">
+          <input pInputText type="text" [formControl]="listService.form.isbn"/>
+        </th>
+        <th class="p-fluid">
+          <input pInputText type="text" [formControl]="listService.form.title"/>
+        </th>
+        <th class="p-fluid">
+          <p-calendar [formControl]="listService.form.dateRange" [appendTo]="'body'" selectionMode="range"
+                      [showButtonBar]="true" [readonlyInput]="true" [locale]="localeDe" dateFormat="dd.mm.yy"
+          ></p-calendar>
+        </th>
+        <th class="p-fluid">
+          <input pInputText type="text" [formControl]="listService.form.authorName"/>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+      <tr [routerLink]="book ? book.id : null" [style.cursor]="book ? 'pointer' : 'default'">
+        <td>{{book?.id}}&nbsp;</td>
+        <td>{{book?.isbn}}&nbsp;</td>
+        <td>{{book?.title}}&nbsp;</td>
+        <td>{{book?.createdAt | date: 'medium' }}&nbsp;</td>
+        <td>{{book?.authorName}}&nbsp;</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
