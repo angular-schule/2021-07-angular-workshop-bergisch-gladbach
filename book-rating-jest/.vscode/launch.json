@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "type": "node",
+      "name": "Jest (current spec)",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": [
+        "${fileBasename}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true
+    },
+    {
+      "type": "node",
+      "name": "Jest All",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": [
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true
+    }
+  ]
+}
