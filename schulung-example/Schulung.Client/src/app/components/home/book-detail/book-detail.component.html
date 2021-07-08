@@ -1,0 +1,8 @@
+<div class="container" *ngIf="routeBook | async; let book">
+  <h1 class="p-mb-0">{{book.title}}</h1>
+  <div class="p-mb-2">
+    <small>{{book.authorName}}</small>
+  </div>
+  <div [innerHTML]="book.description | bypassHtml"></div>
+  <small>{{book.createdAt | date: 'medium'}}</small>
+</div>
