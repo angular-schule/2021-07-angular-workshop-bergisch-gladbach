@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RepeatDirective } from '../shared/repeat.directive';
 
@@ -11,8 +12,9 @@ describe('BookComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         BookComponent,
-        RepeatDirective // Integration Test!
-      ]
+        // RepeatDirective // Integration Test!
+      ],
+      schemas: [NO_ERRORS_SCHEMA] // Shallow Unit Test
     })
     .compileComponents();
   });
