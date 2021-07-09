@@ -21,4 +21,8 @@ describe('RepeatDirective', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
+  it('should do nothin', () => {
+    expect(true).toBe(true);
+  });
 });
