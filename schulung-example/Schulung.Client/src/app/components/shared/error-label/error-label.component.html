@@ -1,0 +1,12 @@
+<small *ngIf="control?.touched && control?.invalid">
+  <ng-container *ngIf="control?.errors?.required">{{ 'formErrors.required' | translate }}</ng-container>
+  <ng-container *ngIf="control?.errors?.arrayMinLength">
+    {{ 'formErrors.arrayMinLength' | translate:{ requiredLength: control.errors.arrayMinLength.requiredLength } }}
+  </ng-container>
+  <ng-container *ngIf="control?.errors?.maxlength">
+    {{ 'formErrors.maxlength' | translate:{ requiredLength: control.errors.maxlength.requiredLength, actualLength: control.errors.maxlength.actualLength } }}
+  </ng-container>
+  <ng-container *ngIf="control?.errors?.sanitize">
+    {{ 'formErrors.sanitize' | translate:{ location: control?.errors?.sanitize } }}
+  </ng-container>
+</small>

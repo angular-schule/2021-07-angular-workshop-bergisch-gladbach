@@ -1,0 +1,34 @@
+<div class="container">
+
+  <div class="p-grid p-fluid p-pt-4">
+
+    <div class="p-col-6">
+      <input pInputText [placeholder]=" 'book.title' | translate" [formControl]="listService.form.title">
+    </div>
+    <div class="p-col-6">
+      <p-calendar [placeholder]=" 'book.createdAt' | translate" [formControl]="listService.form.dateRange" [appendTo]="'body'"
+                  selectionMode="range" [locale]="localeDe" dateFormat="dd.mm.yy"
+                  [showButtonBar]="true" [readonlyInput]="true"
+      ></p-calendar>
+    </div>
+  </div>
+
+  <ng-container  *ngIf="listService.resultChanges | async; let books;">
+    <div class="p-grid p-mb-2">
+      <div class="p-col-6" style="cursor: pointer" *ngFor="let book of books.items" [routerLink]="['detail', book.id]">
+        <h3 class="p-mb-0">{{book.title}}</h3>
+        <div class="p-mb-2">
+          <small>{{book.authorName}}</small>
+        </div>
+        <small>{{book.createdAt | date: 'medium'}}</small>
+      </div>
+    </div>
+
+    <p-paginator [rows]="listService.form.pageSize.value" [totalRecords]="books.totalCount" (onPageChange)="listService.primeNgLazyLoad($event)"
+                 [first]="listService.primeNgFirst" [rowsPerPageOptions]="[2,6,10]">
+
+    </p-paginator>
+  </ng-container>
+
+
+</div>
