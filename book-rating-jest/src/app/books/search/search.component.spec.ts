@@ -48,5 +48,22 @@ describe('SearchComponent', () => {
       });
     });
 
+
+    it('should debounce terms', () => {
+      scheduler.run(({ cold, hot, expectObservable }) => {
+        component.term$ = cold('a--b--c--d', {
+          a: 'AAAA',
+          b: 'BBBB',
+          c: 'CCCC',
+          d: 'DDDD',
+        });
+
+        component.ngOnInit();
+
+        const expectedBooks = [{ title: 'Book DDDD' }];
+        expectObservable(component.results$).toBe('--- --- --- 500ms x', { x: expectedBooks });
+      });
+    });
+
   });
 });
