@@ -1,0 +1,37 @@
+div.scrollbox {
+  overflow-y: scroll;
+  height: 300px;
+  margin: 1em 0;
+  padding: 5px;
+  border-radius: 5px;
+  background: #DDD;
+  border: 10px solid #DDD;
+
+  div.message {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(255,255,255,.7);
+  }
+
+  div.bar {
+    height: 30px;
+    margin-top: 5px;
+
+    &:nth-child(5n+1), &:first-child {
+      background: #007bff;
+    }
+    &:nth-child(5n+2) {
+      background: #6f42c1;
+    }
+    &:nth-child(5n+3) {
+      background: #dc3545;
+    }
+    &:nth-child(5n+4) {
+      background: #ffc107;
+    }
+    &:nth-child(5n+5) {
+      background: #20c997;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col text-center">
+    <input class="form-control form-control-lg" placeholder="Search Books" [formControl]="searchControl">
+  </div>
+</div>
+
+<div class="progress mt-2" *ngIf="loading">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%">
+    Loading...
+  </div>
+</div>
+
+<ul *ngIf="results" class="list-group mt-5">
+  <li class="list-group-item" *ngFor="let book of results">
+    <h4>{{ book.title }}</h4>
+    <p class="text-muted small">
+      {{ formatAuthors(book.authors) }}
+    </p>
+    <p>{{ book.description }}</p>
+  </li>
+</ul>
+
+<hr>
+
+<ul>
+  <li>Baue eine TypeAhead-Suche, die während der Eingabe eine Suche gegen unsere Buch-API ausführt.</li>
+  <li>Die Eingabewerte aus dem Formular werden durch das Observable <code>searchInput$</code> bekanntgegeben.</li>
+  <li>Zur Suche soll der Service <code>TypeaheadService</code> verwendet werden, er hat die Methode <code>this.ts.search(term: string)</code>.</li>
+  <li>Die aktuellen Ergebnisse sollen im Property <code>this.results</code> gespeichert werden.</li>
+  <li>Der Lade-Indikator wird angezeigt, wenn das Property <code>loading</code> den Wert <code>true</code> hat.</li>
+  <li>Extra: Refaktorisiere den Code und nutze die AsyncPipe von Angular, um die Subscription aufzubauen.</li>
+</ul>
