@@ -12,6 +12,13 @@ Die gesamte Installation wird rund 30 Minuten dauern.
 
 > **Wir machen einen Praxisworkshop zum Mitmachen! Du benötigst also einen eigenen Computer mit Entwicklungsumgebung.**
 
+# 🎮 RxJS Playground
+
+Du kannst dir entweder  
+* dieses Repository per Git herunterladen und in den Ordner `rxjs-playground` wechseln<br>**oder**<br>  
+* den Code als ZIP-Datei herunterladen: [rxjs-playground.zip](https://github.com/angular-schule/2021-07-angular-workshop-bergisch-gladbach/files/6791197/rxjs-playground.zip)
+
+
 # Software installieren
 
 1. **Node.js 14** (aktuelle LTS-Version): [https://nodejs.org](https://nodejs.org)
