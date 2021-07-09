@@ -23,5 +23,7 @@
     <button (click)="doRateDown()" class="btn btn-red mr-2"> – </button>
     <a [routerLink]="['/books', book?.isbn]">Details</a>
 
+    {{ log() }}
+
   </div>
 </div>
