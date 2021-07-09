@@ -40,6 +40,14 @@ export class DashboardComponent implements OnInit {
         rating: 3,
         firstThumbnailUrl: null
       },
+      {
+        isbn: '333',
+        title: 'AngularJS',
+        description: '??',
+        authors: ['??', '??'],
+        rating: 3,
+        firstThumbnailUrl: null
+      },
     ];
   }
 

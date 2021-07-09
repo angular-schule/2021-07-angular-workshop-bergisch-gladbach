@@ -19,7 +19,7 @@
       {{ book?.description }}
     </p>
 
-    <button data-rate-up-btn (click)="doRateUp()" class="btn btn-green mr-1"> + </button>
+    <button [disabled]="true" data-rate-up-btn (click)="doRateUp()" class="btn btn-green mr-1"> + </button>
     <button (click)="doRateDown()" class="btn btn-red mr-2"> – </button>
     <a [routerLink]="['/books', book?.isbn]">Details</a>
 
