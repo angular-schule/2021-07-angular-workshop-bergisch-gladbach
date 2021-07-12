@@ -4,7 +4,12 @@
 </ng-container> -->
 
 <h2>{{ (book$ | async)?.title }} -- {{ (book$ | async)?.rating }}</h2>
-<p>{{ (book$ | async)?.description }}</p>
+
+<p *ngIf="showDetails">
+  {{ (book$ | async)?.description }}
+</p>
+
+<button (click)="showDetails = !showDetails">Toggle details</button>
 
 <ng-template #loading>
   <strong>Buch wird geladen…</strong>
