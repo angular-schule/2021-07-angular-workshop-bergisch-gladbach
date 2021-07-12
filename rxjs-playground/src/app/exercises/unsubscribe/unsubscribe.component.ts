@@ -9,7 +9,7 @@ import { takeWhile, takeUntil } from 'rxjs/operators';
 export class UnsubscribeComponent implements OnInit, OnDestroy {
 
   logStream$ = new ReplaySubject<string | number>();
-  destroyed = false;
+  destroy$ = new Subject();
 
   /**
    * Öffne die Browser-Console: Dort siehst Du den Output eines Observables, das jede Sekunde einen Wert generiert.
@@ -26,7 +26,7 @@ export class UnsubscribeComponent implements OnInit, OnDestroy {
 
     interval$.pipe(
 
-      takeWhile(() => !this.destroyed)
+      takeUntil(this.destroy$)
 
     ).subscribe({
       next: e => this.log(e),
@@ -36,7 +36,8 @@ export class UnsubscribeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.destroyed = true;
+    this.destroy$.next();
+    // nicht notwendig this.destroy$.complete();
 
     this.logStream$.next('DESTROY');
   }
