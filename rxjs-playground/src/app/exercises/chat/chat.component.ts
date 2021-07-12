@@ -36,7 +36,11 @@ export class ChatComponent implements OnInit {
 
     /**************!!**************/
 
-     EMPTY.subscribe({                                   
+    forkJoin([
+       this.msg.julia$,
+       this.msg.georg$,
+       this.msg.john$
+    ]).subscribe({
       next: e => this.log(e),
       error: err => this.log('❌ ERROR: ' + err),
       complete: () => this.log('✅ All members left')
