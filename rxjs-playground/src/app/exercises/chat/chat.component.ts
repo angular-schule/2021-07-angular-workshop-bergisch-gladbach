@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject, ReplaySubject, merge, concat, race, forkJoin, EMPTY } from 'rxjs';
+import { Subject, ReplaySubject, merge, concat, race, forkJoin, EMPTY, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -36,7 +36,7 @@ export class ChatComponent implements OnInit {
 
     /**************!!**************/
 
-    forkJoin([
+    combineLatest([
        this.msg.julia$,
        this.msg.georg$,
        this.msg.john$
