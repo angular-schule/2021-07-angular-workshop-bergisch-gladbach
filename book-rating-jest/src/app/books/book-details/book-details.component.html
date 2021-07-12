@@ -1,4 +1,4 @@
-<ng-container *ngIf="book$ | async as book;">
+<ng-container *ngIf="book$ | async as book; else loading">
   <h2>{{ book.title }}</h2>
   <p>{{ book.description }}</p>
 </ng-container>
@@ -11,9 +11,9 @@
 
 <button (click)="showDetails = !showDetails">Toggle details</button>
 
-<div *ngIf="isLoading">
+<ng-template #loading>
   <strong>Poor mans loading indicator 1</strong>
-</div>
+</ng-template>
 
 <hr>
 
@@ -21,4 +21,8 @@
 
 <p class="mt-3">
   <a routerLink="/books/9783864906466">Book 9783864906466 (Angular)</a><br>
+</p>
+
+<p class="mt-3">
+  <a routerLink="/books/404">Book 404 (Angular)</a><br>
 </p>

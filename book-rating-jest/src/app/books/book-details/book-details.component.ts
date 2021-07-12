@@ -12,13 +12,10 @@ import { BookStoreService } from '../shared/book-store.service';
 export class BookDetailsComponent {
 
   showDetails = false;
-  isLoading = false;
 
   book$ = this.route.paramMap.pipe(
     map(paramMap => paramMap.get('isbn') || ''),
-    tap(() => this.isLoading = true),
     switchMap(isbn => this.bs.getSingle(isbn)),
-    tap(() => this.isLoading = false),
     // share()
     // shareReplay(1)
   );
