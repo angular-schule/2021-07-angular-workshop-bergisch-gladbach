@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, BehaviorSubject, ReplaySubject, Observable } from 'rxjs';
-import { share } from 'rxjs/operators';
+import { share, shareReplay } from 'rxjs/operators';
 
 import { MeasureValuesService } from './measure-values.service';
 import { ExerciseService } from '../exercise.service';
@@ -21,7 +21,18 @@ export class MulticastComponent implements OnInit {
   ngOnInit() {
     /******************************/
 
-    
+    // 1. unchanged stream
+    // this.measureValues$ = this.mvs.getValues();
+
+    // 2. unchanged stream
+    // this.measureValues$ = this.mvs.getValues().pipe(share())
+    // ODER SO
+    // this.measureValues$ = new Subject();
+    // this.mvs.getValues().subscribe(this.measureValues$)
+
+    // 3. ReplaySubject
+    this.measureValues$ = this.mvs.getValues().pipe(shareReplay(1))
+
     /******************************/
   }
 
