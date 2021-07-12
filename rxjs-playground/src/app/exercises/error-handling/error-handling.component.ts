@@ -30,9 +30,8 @@ export class ErrorHandlingComponent {
 
       // retry(3),
       // catchError((e: Error) => { console.log('Hilfe!'); return throwError(':-('); })
-      // catchError((e: Error) => { console.log('Hilfe!'); return of(':-)'); })
-      catchError((e: Error) => { console.log('Hilfe!'); return EMPTY; })
-
+      catchError((e: Error) => { console.log('Hilfe!'); return of(':-)'); })
+      // catchError((e: Error) => { console.log('Hilfe!'); return EMPTY; })
 
       /******************************/
 
