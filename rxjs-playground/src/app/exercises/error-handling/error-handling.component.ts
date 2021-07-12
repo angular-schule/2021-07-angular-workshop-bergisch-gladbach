@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReplaySubject, throwError, of } from 'rxjs';
+import { ReplaySubject, throwError, of, onErrorResumeNext, EMPTY } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 import { ExerciseService } from '../exercise.service';
@@ -28,7 +28,12 @@ export class ErrorHandlingComponent {
 
       /******************************/
 
-      
+      // retry(3),
+      // catchError((e: Error) => { console.log('Hilfe!'); return throwError(':-('); })
+      // catchError((e: Error) => { console.log('Hilfe!'); return of(':-)'); })
+      catchError((e: Error) => { console.log('Hilfe!'); return EMPTY; })
+
+
       /******************************/
 
     ).subscribe({
