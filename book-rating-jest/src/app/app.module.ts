@@ -19,12 +19,12 @@ import { BooksModule } from './books/books.module';
     BooksModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'de' }
+    // { provide: LOCALE_ID, useValue: 'de' }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor() {
-    registerLocaleData(localeDe);
+    registerLocaleData(localeDe); // !!
   }
 }

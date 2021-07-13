@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, LOCALE_ID } from '@angular/core';
 
 @Component({
   selector: 'br-root',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Book Rating';
+  title = $localize`:@@HelloWorld:Hello World! :-(`;
+
+  constructor(@Inject(LOCALE_ID) locale: string) {
+    console.log('LOCALE_ID', locale);
+  }
 }

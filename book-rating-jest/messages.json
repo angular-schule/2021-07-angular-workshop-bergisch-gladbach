@@ -1,0 +1,7 @@
+{
+  "locale": "en-US",
+  "translations": {
+    "WelcomeMessage": " You can organize your books here! ",
+    "HelloWorld": "Hello World! :-("
+  }
+}
