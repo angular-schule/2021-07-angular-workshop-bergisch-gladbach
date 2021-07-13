@@ -1,6 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { concatMap, map, mergeMap, share, shareReplay, startWith, switchMap, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { catchError, concatMap, map, mergeMap, share, shareReplay, startWith, switchMap, tap } from 'rxjs/operators';
 
 import { BookStoreService } from '../shared/book-store.service';
 
@@ -18,6 +20,10 @@ export class BookDetailsComponent {
     switchMap(isbn => this.bs.getSingle(isbn)),
     // share()
     // shareReplay(1)
+    catchError((err: HttpErrorResponse) => of({
+      title: 'ERROR',
+      description: err.message
+    }))
   );
 
   constructor(private route: ActivatedRoute, private bs: BookStoreService) { }
