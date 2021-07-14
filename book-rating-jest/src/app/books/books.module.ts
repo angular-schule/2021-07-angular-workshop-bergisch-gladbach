@@ -15,6 +15,7 @@ import * as fromBook from './store/book.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { BookEffects } from './store/book.effects';
 import { loadBooks } from './store/book.actions';
+import { BookFacadeService } from './store/book-facade.service';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { loadBooks } from './store/book.actions';
   ]
 })
 export class BooksModule {
-  constructor(store: Store) {
-    store.dispatch(loadBooks());
+  constructor(facade: BookFacadeService) {
+    facade.loadBooks();
   }
 }

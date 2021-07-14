@@ -1,12 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { of } from 'rxjs';
 
 import { Book } from '../shared/book';
-import { BookRatingService } from '../shared/book-rating.service';
-import { BookStoreService } from '../shared/book-store.service';
-import { TestService } from '../shared/test.service';
-import { selectBooks, selectLoading } from '../store/book.selectors';
+import { BookFacadeService } from '../store/book-facade.service';
 
 @Component({
   selector: 'br-dashboard',
@@ -16,10 +11,9 @@ import { selectBooks, selectLoading } from '../store/book.selectors';
 })
 export class DashboardComponent implements OnInit {
 
-  books$ = this.store.select(selectBooks);
-  loading$ = this.store.select(selectLoading);
+  booksTheOtherWay$ = this.facade.loadBooks2();
 
-  constructor(private store: Store) { }
+  constructor(public facade: BookFacadeService) { }
 
   ngOnInit() {
     // this.bs.getAll().subscribe(books => this.books = books);
