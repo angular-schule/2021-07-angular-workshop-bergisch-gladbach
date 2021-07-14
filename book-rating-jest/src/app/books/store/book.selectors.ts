@@ -36,3 +36,9 @@ export const selectBookByIsbn = createSelector(
   selectBooks,
   (state: Book[], props: { isbn: string }) => state.find(b => b.isbn === props.isbn)
 );
+
+export const selectBookByIsbnFactory = (isbn: string) => createSelector(
+  selectBooks,
+  state => state.find(b => b.isbn === isbn)
+);
+

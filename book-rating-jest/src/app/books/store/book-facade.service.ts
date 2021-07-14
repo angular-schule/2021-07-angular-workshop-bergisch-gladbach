@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
 import { loadBooks, loadBooksFailure, loadBooksSuccess } from './book.actions';
-import { selectBooks, selectLoading } from './book.selectors';
+import { selectBookByIsbn, selectBookByIsbnFactory, selectBooks, selectLoading } from './book.selectors';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +35,14 @@ export class BookFacadeService {
       next: books => this.store.dispatch(loadBooksSuccess({ books })),
       error: (error: HttpErrorResponse) =>  this.store.dispatch(loadBooksFailure({ error })),
     });
+  }
+
+  // depcrecated
+  getBookByIsbn(isbn: string): Observable<Book | undefined> {
+    return this.store.select(selectBookByIsbn, { isbn });
+  }
+
+  getBookByIsbn2(isbn: string): Observable<Book | undefined> {
+    return this.store.select(selectBookByIsbnFactory(isbn));
   }
 }
