@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
 import { loadBooks, loadBooksFailure, loadBooksSuccess } from './book.actions';
-import { selectBookByIsbn, selectBookByIsbnFactory, selectBooks, selectLoading } from './book.selectors';
+import { selectBookByIsbn, selectBookByIsbnFactory, selectBooks, selectLoading, selectSelectedBooks } from './book.selectors';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class BookFacadeService {
 
   books$ = this.store.select(selectBooks);
   loading$ = this.store.select(selectLoading);
+  selectedBook$ = this.store.select(selectSelectedBooks);
 
   constructor(private store: Store, private bs: BookStoreService) { }
 
