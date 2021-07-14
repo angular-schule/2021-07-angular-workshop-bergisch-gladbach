@@ -11,7 +11,7 @@ import { BookFacadeService } from '../store/book-facade.service';
 })
 export class DashboardComponent implements OnInit {
 
-  booksTheOtherWay$ = this.facade.loadBooks2();
+  // booksTheOtherWay$ = this.facade.loadBooks2();
   angularBook$ = this.facade.getBookByIsbn('9783864907791');
 
   constructor(public facade: BookFacadeService) { }
