@@ -15,3 +15,8 @@ export const loadBooksFailure = createAction(
   '[Book] Load Books Failure',
   props<{ error: HttpErrorResponse }>()
 );
+
+export const detailsRouteLoaded = createAction(
+  '[Book] Details Route Loaded',
+  props<{ isbn: string }>()
+);

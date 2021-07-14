@@ -1,8 +1,10 @@
+/* eslint-disable ngrx/prefer-effect-callback-in-block-statement */
 /* eslint-disable arrow-body-style */
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
+import { mapToParam, ofRoute } from 'src/app/utils-ngrx-router/operators';
 
 import { BookStoreService } from '../shared/book-store.service';
 import * as BookActions from './book.actions';
@@ -23,6 +25,13 @@ export class BookEffects {
     );
   });
 
+  loadElementOnRouting$ = createEffect(() =>
+    this.actions$.pipe(
+      ofRoute(['books/:isbn']),
+      mapToParam('isbn'),
+      map(isbn => BookActions.detailsRouteLoaded({ isbn }))
+    )
+  );
 
 
   constructor(private actions$: Actions, private bs: BookStoreService) {}

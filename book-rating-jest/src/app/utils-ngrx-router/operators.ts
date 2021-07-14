@@ -40,7 +40,8 @@ export function isRoute(route: string | string[] | RegExp) {
  */
 export function ofRoute<T extends BaseRouterStoreState>(
   route: string | string[] | RegExp
-): MonoTypeOperatorFunction<RouterNavigatedAction<T>> {
+//): MonoTypeOperatorFunction<RouterNavigatedAction<T>> {
+): any {
   {
     return filter<RouterNavigatedAction<any>>(isRoute(route));
   }
