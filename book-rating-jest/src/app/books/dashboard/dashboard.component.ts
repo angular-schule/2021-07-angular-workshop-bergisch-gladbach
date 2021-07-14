@@ -1,26 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { of } from 'rxjs';
 
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
 import { BookStoreService } from '../shared/book-store.service';
 import { TestService } from '../shared/test.service';
+import { selectBooks, selectLoading } from '../store/book.selectors';
 
 @Component({
   selector: 'br-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  providers: [TestService]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit {
 
-  books: Book[] = [];
+  books$ = this.store.select(selectBooks);
+  loading$ = this.store.select(selectLoading);
 
-  constructor(
-    private bs: BookStoreService,
-    private rs: BookRatingService,
-    private test: TestService
-    ) { }
+  constructor(private store: Store) { }
 
   ngOnInit() {
     // this.bs.getAll().subscribe(books => this.books = books);

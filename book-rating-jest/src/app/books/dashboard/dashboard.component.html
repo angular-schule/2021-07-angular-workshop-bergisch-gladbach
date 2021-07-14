@@ -1,5 +1,4 @@
-<ng-container *ngIf="books">
-  <span class="badge badge-success mb-3">Es sind {{ books.length }} Bücher vorhanden.</span>
+<ng-container *ngIf="books$ | async as books">
 
   <br-book
     *ngFor="let b of books; trackBy: trackBook"
@@ -8,3 +7,10 @@
     [book]="b"></br-book>
 
 </ng-container>
+
+<h4 *ngIf="loading$ | async">Loading!!</h4>
+
+
+<span class="badge badge-success mb-3">
+  Es sind {{ (books$ | async)?.length }} Bücher vorhanden.
+</span>
